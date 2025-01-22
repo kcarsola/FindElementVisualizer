@@ -4,7 +4,7 @@ export const useSearchAnimation = (
   isSearching: boolean,
   steps: number[],
   setIsSearching: React.Dispatch<React.SetStateAction<boolean>>
-) => {
+): [number | null, React.Dispatch<React.SetStateAction<number | null>>] => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -30,5 +30,5 @@ export const useSearchAnimation = (
     };
   }, [isSearching, steps, setIsSearching]);
 
-  return currentIndex;
+  return [currentIndex, setCurrentIndex];
 };
